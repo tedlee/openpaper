@@ -1,20 +1,23 @@
-<html>
-<body> 
 
-<h3> Papers </h3>
-<table>
-<tr>
-	<th> Title </th>
-	<th> Author </th>
-	<th> School </th>
-</tr>
-<% records.each do | record | %> <!-- Run but not displayed --> 
-	<tr>
-	<td><%= record["title"] %> <!-- Specifies title --> </td>
-	<td><%= record["author"] %> <!-- Specifies author --> </td>
-	<td><%= record["school"] %> <!-- Specifies school --> </td>
-	</tr>
+<form action="/papers" method="post">
+	<input type="text" name="title" placeholder="Title"/>
+	<input type="text" name="author" placeholder="Author"/>
+	<input type="text" name="school" placeholder="School"/>
+	<input type="text" name="source" placeholder="Source"/>
+	<input type="submit" value="Add Paper">
+</form>
+
+
+
+<% @papers.each do |paper| %>
+	<article>
+		<p>
+		<%= paper.title %>
+		<%= paper.author %>
+		<%= paper.school %>
+		<%= paper.source %>
+		<%= paper.created_at %>
+		</p>
+	</article>
 <% end %>
 
-</body>
-</html>
