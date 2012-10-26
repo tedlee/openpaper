@@ -44,6 +44,22 @@ post '/papers' do
 	redirect '/papers'  
 end  
 
+get "/papers/:id" do
+	@paper = Paper.get params[:id]
+	@title = "Edit paper ##{params[:id]}"
+	erb :edit
+end
+
+put '/papers/:id' do
+	p = Paper.get params[:id]
+	p.title = params[:title]
+	p.author = params[:author]
+	p.school = params[:school]
+	p.source = params[:source]
+	p.save
+	redirect '/papers'
+end
+
 
 get "/add" do
 	# For new entry

@@ -1,0 +1,13 @@
+<% if @paper %>
+	<form action="/papers/<%= @paper.id %>" method="post" id="edit">
+		<input type="hidden" name="_method" value="put">
+		<input type="text" name="title" value="<%= @paper.title %>"/>
+		<input type="text" name="author" value="<%= @paper.author %>"/>
+		<input type="text" name="school" value="<%= @paper.school %>"/>
+		<input type="text" name="source" value="<%= @paper.source %>"/>
+		<input type="submit" value="Submit Changes">
+	</form>
+	<p><a href="/<%= @paper.id %>/delete">Delete</a></p>
+<% else %>  
+	<p>Paper not found.</p>  
+<% end %> 
