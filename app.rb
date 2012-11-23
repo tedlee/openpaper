@@ -1,5 +1,5 @@
 require "sinatra" 
-require "erb"
+#require "erb"
 require "pry"
 require "data_mapper"
 
@@ -52,11 +52,14 @@ end
 
 put '/papers/:slug' do
 	p = Paper.get params[:slug]
+	p.destroy #deltes current entry to renew slug
+	p = Paper.new  
 	p.title = params[:title]
 	p.author = params[:author]
 	p.school = params[:school]
 	p.source = params[:source]
-	p.save
+	p.created_at = Time.now
+	p.save  
 	redirect '/addpaper'
 end
 
