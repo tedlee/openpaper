@@ -6,7 +6,7 @@ require "data_mapper"
 set :views, settings.root + '/views'
 
 #Setup the sqlite3 db and schema
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/papers.db") 
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/papers.db")
 
 class Paper  
 	include DataMapper::Resource
