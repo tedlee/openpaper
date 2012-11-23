@@ -10,27 +10,27 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/papers.db")
 
 class Paper  
 	include DataMapper::Resource
-	property :id, Serial
-	property :title, Text, :required => true
-	property :author, Text, :required => true
-	property :school, Text, :required => true
-	property :source, Text, :required => true
+	property :slug, String, key: true, unique_index: true, default: lambda { |resource,prop| resource.title.downcase.gsub " ", "-" }
+	property :title, Text, required: true
+	property :author, Text, required: true
+	property :school, Text, required: true
+	property :source, Text, required: true
 	property :created_at, DateTime  
 end
 
-DataMapper.auto_upgrade!
+configure :development do
+	DataMapper.auto_upgrade!
+end
 
 get "/" do
 	@title = "OpenPaper"
 	erb :index
 end
 
-get "/papers" do
-
+get "/addpaper" do
 	@papers = Paper.all :order => :title.desc  
 	@title = 'All Papers'
 	erb :papers
-
 end
 
 post '/papers' do  
@@ -41,25 +41,36 @@ post '/papers' do
 	p.source = params[:source]
 	p.created_at = Time.now
 	p.save  
-	redirect '/papers'  
+	redirect '/addpaper'  
 end  
 
-get "/papers/:id" do
-	@paper = Paper.get params[:id]
-	@title = "Edit paper ##{params[:id]}"
+get "/papers/:slug" do
+	@paper = Paper.get params[:slug]
+	@title = "Edit paper ##{params[:slug]}"
 	erb :edit
 end
 
-put '/papers/:id' do
-	p = Paper.get params[:id]
+put '/papers/:slug' do
+	p = Paper.get params[:slug]
 	p.title = params[:title]
 	p.author = params[:author]
 	p.school = params[:school]
 	p.source = params[:source]
 	p.save
-	redirect '/papers'
+	redirect '/addpaper'
 end
 
+get '/:slug/delete' do
+	@paper = Paper.get params[:slug]
+	@title = "Confirm deletion of paper ##{params[:slug]}"
+	erb :delete 
+end
+
+delete '/:slug' do  
+	p = Paper.get params[:slug]  
+	p.destroy  
+	redirect '/addpaper'  
+end  
 
 get "/add" do
 	# For new entry

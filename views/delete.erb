@@ -1,0 +1,11 @@
+<% if @paper %>
+	<p> Sure you want to delete the following paper: <em>"<%= @paper.title %>"</em>?</p>
+
+	<form action="/<%= @paper.slug %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Yes, Delete it">
+		<a href="/<%= @paper.slug %>"> Cancel </a>
+	</form>
+<% else %>
+	<p> Paper not found. </p>
+<% end %>
