@@ -1,6 +1,6 @@
 require "sinatra" 
 #require "erb"
-require "pry"
+#require "pry"
 require "data_mapper"
 
 
