@@ -3,14 +3,7 @@ require "sinatra"
 #require "pry"
 require "data_mapper"
 
-
 set :views, settings.root + '/views'
-
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/openpaper")
-
-#Setup the sqlite3 db and schema
-#DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/papers.db")
 
 class Paper  
 	include DataMapper::Resource
@@ -22,13 +15,19 @@ class Paper
 	property :created_at, DateTime  
 end
 
-#configure :development do
-#	DataMapper.auto_migrate!
-#end
 
-#configure :production do
-DataMapper.auto_migrate!
-#end
+configure :development do  
+    DataMapper.auto_upgrade!  
+end 
+
+configure :production do
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/openpaper")
+	DataMapper.finalize
+	DataMapper.auto_upgrade!
+
+	#DataMapper.auto_migrate! #clears all data
+end
+
 
 get "/" do
 	@title = "OpenPaper"
