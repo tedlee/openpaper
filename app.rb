@@ -3,6 +3,10 @@ require "sinatra"
 #require "pry"
 require "data_mapper"
 
+configure :production do
+	require 'newrelic_rpm'
+end
+
 set :views, settings.root + '/views'
 
 class Paper  
