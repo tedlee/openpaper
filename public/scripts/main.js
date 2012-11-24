@@ -17,6 +17,7 @@ $(document).ready(function() {
 		"bayes": "Is this Bayesian? You know I'm a strict Bayesian, right?",
 		"statistics": "An exhaustive peer-reviewed study has revealed 62.381527% of all statistics are made up on the spot.",
 		"john connors": "The machines rose from the ashes of the nuclear fire.",
+		"euclid": "function gcd(a, b) { return b ? gcd(b, a % b) : a; }",
 		"singularity": "Technology has been a double-edged sword since fire kept us warm but burned down our villages - Kurzweil."
 	};
 
