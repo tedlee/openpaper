@@ -33,8 +33,12 @@ var isSpecial = function( letters ) {
 
 	if ( specialQueries[ letters ] ) {
 		$("p").text( specialQueries [letters] );
+		$("input").css('borderColor', "#9eedc1");
+		$("input").css('boxShadow', "#9eedc1");
 	} else {
 		$("p").text( "Academic papers for all." );
+		$("input").css('borderColor', "#9ecaed");
+		$("input").css('boxShadow', "#9ecaed");
 	}
 
 } 
