@@ -7,7 +7,7 @@ require "data_mapper"
 set :views, settings.root + '/views'
 
 
-DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_CHARCOAL'] || "postgres://localhost/openpaper")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/openpaper")
 
 #Setup the sqlite3 db and schema
 #DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/papers.db")
@@ -23,6 +23,10 @@ class Paper
 end
 
 #configure :development do
+#	DataMapper.auto_migrate!
+#end
+
+#configure :production do
 DataMapper.auto_migrate!
 #end
 
