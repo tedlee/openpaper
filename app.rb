@@ -11,7 +11,7 @@ set :views, settings.root + '/views'
 
 class Paper  
 	include DataMapper::Resource
-	property :slug, String, key: true, unique_index: true, default: lambda { |resource,prop| resource.title.downcase.gsub " ", "-" }
+	property :slug, String, :length => 100, key: true, unique_index: true, default: lambda { |resource,prop| resource.title[0..99].downcase.gsub " ", "-" }
 	property :title, Text, required: true
 	property :author, Text, required: true
 	property :school, Text, required: true
