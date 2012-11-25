@@ -1,21 +1,37 @@
-<div id="logo"> 
-	<img src="images/openpaper_logo.png"/>
-</div>
-
-<div id="content">
-	<form id="searchBox" action="#" method="post">
-	  
-	    <div>
-	        <input type="text" name="name" id="name" placeholder="Machine Learning..." value="" tabindex="1" />
-	    </div>
-	    
-	</form>
+<!doctype html> 
+<html lang="en">
+<head>  
+	<meta charset="utf8">  
+	<title><%= @title + ' | Paper' %></title>  
+	<link rel="stylesheet" href="../styles/style.css" type="text/css" />
 	
-	<div id="subtext">
-		<p>
-			Academic papers for all.
-		</p>
+	<script src="../scripts/jquery.min.js"></script>
+	<script src="../scripts/main.js"></script>
+	
+</head> 
+<body>
+
+	<div id="main">
+		<div id="logo"> 
+			<img src="images/openpaper_logo.png"/>
+		</div>
+
+		<div id="content">
+			<form id="searchBox" action="#" method="post">
+			  
+			    <div>
+			        <input type="text" name="name" id="name" placeholder="Machine Learning..." value="" tabindex="1" />
+			    </div>
+			    
+			</form>
+			
+			<div id="subtext">
+				<p>
+					Academic papers for all.
+				</p>
+			</div>
+		</div>
 	</div>
-</div>
 
-
+</body>
+</html>

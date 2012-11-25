@@ -1,5 +1,5 @@
 <% if @paper %>
-	<form action="/papers/<%= @paper.slug %>" method="post" id="edit">
+	<form action="/addpaper/<%= @paper.slug %>" method="post" id="edit">
 		<input type="hidden" name="_method" value="put">
 		<input type="text" name="title" value="<%= @paper.title %>"/>
 		<input type="text" name="author" value="<%= @paper.author %>"/>

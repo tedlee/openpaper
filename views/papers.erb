@@ -1,23 +1,43 @@
+<!doctype html> 
+<html lang="en">
 
-<form action="/papers" method="post">
-	<input type="text" name="title" placeholder="Title"/>
-	<input type="text" name="author" placeholder="Author"/>
-	<input type="text" name="school" placeholder="School"/>
-	<input type="text" name="source" placeholder="Source"/>
-	<input type="submit" value="Add Paper">
-</form>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../styles/reset.css" type="text/css" />
+	<link rel="stylesheet" href="../styles/papers_style.css" type="text/css" />
+	<title> OpenPaper </title>
+	<meta name="description" content="OpenPaper" />
+	<meta name="keywords" content="" />
+</head>
 
 
+<body>
 
-<% @papers.each do |paper| %>
-	<article>
-		<p>
-		<%= paper.title %>
-		<%= paper.author %>
-		<%= paper.school %>
-		<%= paper.source %>
-		</p>
-		<span><a href="/papers/<%= paper.slug %>">[edit]</a></span>
-	</article>
-<% end %>
+<div id="logo"> 
+	<img src="images/openpaper_logo.png"/>
+</div>
 
+<div id="box">
+	
+	<div id="filter-bar">
+		<form action="#" method="post">	
+	        <div>
+	            <input type="search" name="name" id="name" placeholder="Filter..." />
+	        </div>
+		</form>
+	</div>
+	
+	<div id="content">
+		
+		<ul class="rectangle-list">
+			<% @papers.each do |paper| %>
+				<li><a href=""> <%= paper.title %> </a></li>			
+			<% end %>
+		</ul>
+	</div>
+	
+	<footer>· OpenPaper ·</footer>
+</div>
+
+</body>
+</html>

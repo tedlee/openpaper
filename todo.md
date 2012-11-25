@@ -17,6 +17,7 @@ Actual
 - Ensure data is persistant [15 minutes]
 - Push to private github repo [15 minutes]
 - Add input box color change [15 minutes]
+- Added NewRelix support to ensure dyno doesn't idle [30 minutes]
 - Modularize js for specific erb []
 - Modularize css for specific css []
 - Implement list view design []

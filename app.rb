@@ -34,16 +34,24 @@ end
 
 get "/" do
 	@title = "OpenPaper"
+	set :erb, :layout => false
 	erb :index
+end
+
+get "/papers" do
+	@papers = Paper.all :order => :title.desc  
+	@title = 'All Papers'
+	set :erb, :layout => false
+	erb :papers
 end
 
 get "/addpaper" do
 	@papers = Paper.all :order => :title.desc  
 	@title = 'All Papers'
-	erb :papers
+	erb :addpaper
 end
 
-post '/papers' do  
+post '/addpaper' do  
 	p = Paper.new  
 	p.title = params[:title]
 	p.author = params[:author]
@@ -54,13 +62,13 @@ post '/papers' do
 	redirect '/addpaper'  
 end  
 
-get "/papers/:slug" do
+get "/addpaper/:slug" do
 	@paper = Paper.get params[:slug]
 	@title = "Edit paper ##{params[:slug]}"
 	erb :edit
 end
 
-put '/papers/:slug' do
+put '/addpaper/:slug' do
 	p = Paper.get params[:slug]
 	p.destroy #deltes current entry to renew slug
 	p = Paper.new  

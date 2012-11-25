@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	specialQueries = {
-		"feynman" : "Always go with the chocolate ice cream.", 
+		"feynman" : "Always go with the chocolate ice cream.",
 		"big data" : "Give man Hadoop cluster he gain insight for a day. Teach man build Hadoop cluster he soon leave for better job — @BigDataBorat",
 		"dieter rams" : "Good design is as little design as possible.",
 		"openpaper" : "♥",
@@ -14,6 +14,7 @@ $(document).ready(function() {
 		"awesome": "I know what you are but what am I?",
 		"map reduce": "Ain't no party like a map reduce party.",
 		"ted": "Good name.",
+		"queen's": "Cha Gheill!",
 		"bayes": "Is this Bayesian? You know I'm a strict Bayesian, right?",
 		"statistics": "An exhaustive peer-reviewed study has revealed 62.381527% of all statistics are made up on the spot.",
 		"john connors": "The machines rose from the ashes of the nuclear fire.",
