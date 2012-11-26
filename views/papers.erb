@@ -31,10 +31,11 @@
 		
 		<ul class="rectangle-list">
 			<% @papers.each do |paper| %>
-				<li><a href="/papers/<%= paper.slug %>"> <%= paper.title %> <p> • <%= paper.author %>  </p>
-				
-				<img class="avatar" src=<%= paper.author_avatar %> />
-				</a></li>			
+				<li><a href="/papers/<%= paper.slug %>"> <%= paper.title %> </a>
+					<p> • <%= paper.author %> </p>
+					<img class="avatar" src=<%= paper.author_avatar %> />
+					<p> <a class = "source-button" href="<%= paper.source %>">↬</a></p>
+				</li>			
 			<% end %>
 		</ul>
 	</div>
