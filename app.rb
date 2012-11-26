@@ -16,6 +16,8 @@ class Paper
 	property :author, Text, required: true
 	property :school, Text, required: true
 	property :source, Text, required: true
+	property :summary, Text, required: false
+	property :author_avatar, Text, required: false
 	property :created_at, DateTime  
 end
 
@@ -57,6 +59,8 @@ post '/addpaper' do
 	p.author = params[:author]
 	p.school = params[:school]
 	p.source = params[:source]
+	p.summary = params[:summary]
+	p.author_avatar = params[:author_avatar]
 	p.created_at = Time.now
 	p.save  
 	redirect '/addpaper'  
@@ -76,6 +80,8 @@ put '/addpaper/:slug' do
 	p.author = params[:author]
 	p.school = params[:school]
 	p.source = params[:source]
+	p.summary = params[:summary]
+	p.author_avatar = params[:author_avatar]
 	p.created_at = Time.now
 	p.save  
 	redirect '/addpaper'
