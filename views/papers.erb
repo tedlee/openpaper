@@ -31,7 +31,8 @@
 		
 		<ul class="rectangle-list">
 			<% @papers.each do |paper| %>
-				<li><a href="/papers/<%= paper.slug %>"> <%= paper.title %> 
+				<li><a href="/papers/<%= paper.slug %>"> <%= paper.title %> <p> • <%= paper.author %>  </p>
+				
 				<img class="avatar" src=<%= paper.author_avatar %> />
 				</a></li>			
 			<% end %>

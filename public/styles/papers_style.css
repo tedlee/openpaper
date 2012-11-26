@@ -52,10 +52,15 @@ body {
 
 ul{
 	list-style: none;
-	font: normal 16px Kefa, "Futura Std", Helvetica, "lucida sans";
+	font: bold 16px Kefa, "Futura Std", Helvetica, "lucida sans";
 	padding: 0;
 	margin-bottom: 1em;
 	z-index: 1;
+}
+
+ul p{
+	font: italic normal 16px Kefa, "Futura Std", Helvetica, "lucida sans";
+	display:inline;
 }
 
 .rectangle-list a{
@@ -101,11 +106,10 @@ input:focus {
 }
 
 .avatar {
-	height: 30px;
+	height: 40px;
 	border-radius: 8px;
-	margin-bottom: -10px;
-	float: right;
-	padding-right: 12px;
+	vertical-align: middle;
+	margin-left: 190px;
 }
 
 
