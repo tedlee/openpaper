@@ -1,0 +1,27 @@
+
+<form action="/addpaper" method="post">
+	<input type="text" name="title" placeholder="Title"/>
+	<input type="text" name="author" placeholder="Author"/>
+	<input type="text" name="school" placeholder="School"/>
+	<input type="text" name="source" placeholder="Source"/>
+	<input type="text" name="summary" placeholder="Summary"/>
+	<input type="text" name="author_avatar" placeholder="Author Image"/>
+	<input type="submit" value="Add Paper">
+</form>
+
+
+
+<% @papers.each do |paper| %>
+	<article>
+		<p>
+		<%= paper.title %>
+		<%= paper.author %>
+		<%= paper.school %>
+		<%= paper.source %>
+		<%= paper.summary %>
+		<%= paper.author_avatar %>
+		</p>
+		<span><a href="/addpaper/<%= paper.slug %>">[edit]</a></span>
+	</article>
+<% end %>
+

@@ -66,7 +66,14 @@ post '/addpaper' do
 	redirect '/addpaper'  
 end  
 
+# Now redundant due to use of /papers/:slug
 get "/addpaper/:slug" do
+	@paper = Paper.get params[:slug]
+	@title = "Edit paper ##{params[:slug]}"
+	erb :edit
+end
+
+get "/papers/:slug" do
 	@paper = Paper.get params[:slug]
 	@title = "Edit paper ##{params[:slug]}"
 	erb :edit
