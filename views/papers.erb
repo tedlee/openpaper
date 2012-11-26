@@ -5,6 +5,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../styles/reset.css" type="text/css" />
 	<link rel="stylesheet" href="../styles/papers_style.css" type="text/css" />
+	<script src="../scripts/list.min.js"></script>
+	<script src="../scripts/papers.js"></script>
 	<title> OpenPaper </title>
 	<meta name="description" content="OpenPaper" />
 	<meta name="keywords" content="" />
@@ -22,19 +24,21 @@
 	<div id="filter-bar">
 		<form action="#" method="post">	
 	        <div>
-	            <input type="search" name="name" id="name" placeholder="Filter..." />
+	            <input class="search" type="text" name="name" id="name" placeholder="Filter..." />
 	        </div>
 		</form>
 	</div>
 	
 	<div id="content">
 		
-		<ul class="rectangle-list">
+		<ul class="list" class="rectangle-list">
 			<% @papers.each do |paper| %>
-				<li><a href="/papers/<%= paper.slug %>"> <%= paper.title %> </a>
-					<p> • <%= paper.author %> </p>
-					<img class="avatar" src=<%= paper.author_avatar %> />
-					<p> <a class = "source-button" href="<%= paper.source %>">↬</a></p>
+				<li><a class = "paperTitle" href="/papers/<%= paper.slug %>"> <%= paper.title %> </a>
+					<p class = "paperAuthor"> • <%= paper.author %> </p>
+					<div id="icons">
+						<img class="avatar" src=<%= paper.author_avatar %> />
+						<p> <a class = "source-button" href="<%= paper.source %>">↬</a></p>
+					</div>
 				</li>			
 			<% end %>
 		</ul>
