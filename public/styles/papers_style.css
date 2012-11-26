@@ -34,6 +34,7 @@ body {
 			box-shadow: 0 2px 4px #777;
 	margin: -5px auto 6%;
 	overflow: scroll;
+	background-color: #fcfcfc;
 }
 
 #filter-bar {
@@ -54,7 +55,7 @@ ul{
 	list-style: none;
 	font: bold 16px Kefa, "Futura Std", Helvetica, "lucida sans";
 	padding: 0;
-	margin-bottom: 1em;
+	/* margin-bottom: 1em; */
 	z-index: 1;
 }
 
@@ -67,18 +68,17 @@ li{
 	position: relative;
 	text-decoration: none;
 	display: block;
-	padding: .5em .4em .8em .8em;
-	margin: 0;
-	background-color: fcfcfc;
+	padding: .4em .4em 1.6em .8em;
 	color: #444;
 	border-top: 1px solid #e3e3e3;
 	z-index:0;
+	vertical-align: middle;
 }
 
 li:hover{
 	border-right: 10px solid #00aeef;
 	background-color: #abe4fa;
-	border-radius: 0px
+	border-radius: 0px;
 }
 
 li a{
@@ -115,7 +115,6 @@ input:focus {
 	height: 40px;
 	border-radius: 8px;
 	vertical-align: middle;
-	margin-left: 100px;
 }
 
 
@@ -165,16 +164,21 @@ footer {
 }
 
 #icons {
-	display: inline;
-	position:absolute;
-	right:0px;
-	width:300px;
-	height: 40px;
-	vertical-align: middle;
-	padding-bottom: -10px;
+	position: relative;
+	right:50px;
+	float: right;
 }
 
+.right {
+	position: absolute;
+	float: right;
+	vertical-align: middle;
+	right: 20px;
+}
 
+.paperTitle {
+	vertical-align: middle;
+}
 
 
 

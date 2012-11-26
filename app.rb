@@ -53,6 +53,14 @@ get "/addpaper" do
 	erb :addpaper
 end
 
+get '/search/*' do
+	query = params[:q].downcase
+	@title = query
+	@papers = Paper.all(:author => query) + Paper.all(:title => query)
+	set :erb, :layout => false
+	erb :papers
+end
+
 post '/addpaper' do  
 	p = Paper.new  
 	p.title = params[:title]

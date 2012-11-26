@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../styles/papers_style.css" type="text/css" />
 	<script src="../scripts/list.min.js"></script>
 	<script src="../scripts/papers.js"></script>
-	<title> OpenPaper </title>
+	<title><%= @title + ' | OpenPaper' %></title> 
 	<meta name="description" content="OpenPaper" />
 	<meta name="keywords" content="" />
 </head>
@@ -35,10 +35,8 @@
 			<% @papers.each do |paper| %>
 				<li><a class = "paperTitle" href="/papers/<%= paper.slug %>"> <%= paper.title %> </a>
 					<p class = "paperAuthor"> • <%= paper.author %> </p>
-					<div id="icons">
-						<img class="avatar" src=<%= paper.author_avatar %> />
-						<p> <a class = "source-button" href="<%= paper.source %>">↬</a></p>
-					</div>
+						<p class = "right"> <img class="avatar" src=<%= paper.author_avatar %> />
+						<a class = "source-button" href="<%= paper.source %>">↬</a></p>
 				</li>			
 			<% end %>
 		</ul>

@@ -20,6 +20,6 @@ Actual
 - Added NewRelix support to ensure dyno doesn't idle [30 minutes]
 - Modularize js for specific erb []
 - Modularize css for specific css []
-- Implement list view design []
-- Add/edit data models as needed []
+- Implement list view design [1 hour]
+- Add/edit data models as needed [1 hour]
 - Add search by title []
