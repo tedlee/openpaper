@@ -30,7 +30,7 @@ end
 configure :production do
 	DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/openpaper")
 	DataMapper.finalize
-	DataMapper.auto_migrate!
+	DataMapper.auto_upgrade!
 end
 
 
