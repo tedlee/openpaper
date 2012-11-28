@@ -58,11 +58,13 @@ get "/addpaper" do
 end
 
 get '/search/*' do
-	query = params[:q]
+	query = params[:q].downcase
 	query = query.downcase
 	@title = query
-
-	@papers = Paper.all(:author_lowercase => query) | Paper.all(:title_lowercase => query)
+	#@papers = Paper.all(:conditions => ["author_lowercase.like = ? OR title_lowercase.like = ?", query, query])
+	#Paper.all("author_lowercase.like" => "%#{query}%")
+	@papers = Paper.all("author_lowercase.like" => "%#{query}%") | Paper.all("title_lowercase.like" => "%#{query}%" )
+	#binding.pry
 	set :erb, :layout => false
 	erb :papers
 end
@@ -104,7 +106,7 @@ put '/addpaper/:slug' do
 	p.summary = params[:summary]
 	p.author_avatar = params[:author_avatar]
 	p.created_at = Time.now
-	p.save  
+	p.save
 	redirect '/addpaper'
 end
 
