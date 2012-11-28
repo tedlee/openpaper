@@ -14,7 +14,10 @@ class Paper
 	property :slug, String, :length => 100, key: true, unique_index: true, default: lambda { |resource,prop| resource.title[0..99].downcase.gsub " ", "-" }
 	property :title, Text, required: true
 	property :author, Text, required: true
+
+	# Strings are not lazy loaded
 	property :author_lowercase, String, default: lambda { |resource,prop| resource.author.downcase }
+	property :title_lowercase, String, :length => 150, default: lambda { |resource,prop| resource.title[0..149].downcase }
 	property :school, Text, required: true
 	property :source, Text, required: true
 	property :summary, Text, required: false
@@ -59,7 +62,7 @@ get '/search/*' do
 	query = query.downcase
 	@title = query
 
-	@papers = Paper.all(:author_lowercase => query) | Paper.all(:title => query)
+	@papers = Paper.all(:author_lowercase => query) | Paper.all(:title_lowercase => query)
 	set :erb, :layout => false
 	erb :papers
 end
