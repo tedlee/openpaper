@@ -40,6 +40,7 @@ end
 
 get "/" do
 	@title = "OpenPaper"
+	@paper_count = Paper.all().count.to_s()
 	set :erb, :layout => false
 	erb :index
 end
