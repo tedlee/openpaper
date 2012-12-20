@@ -5,6 +5,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../styles/reset.css" type="text/css" />
 	<link rel="stylesheet" href="../styles/papers_style.css" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
 	<script src="../scripts/list.min.js"></script>
 	<script src="../scripts/papers.js"></script>
 	<title><%= @title + ' | OpenPaper' %></title> 
@@ -35,14 +37,20 @@
 			<% @papers.each do |paper| %>
 				<li><a class = "paperTitle" href="/papers/<%= paper.slug %>"> <%= paper.title %> </a>
 					<p class = "paperAuthor"> • <%= paper.author %> </p>
-						<p class = "right"> <img class="avatar" src=<%= paper.author_avatar %> />
-						<a class = "source-button" href="<%= paper.source %>">↬</a></p>
+						<div class = "right"> <img class="avatar" src=<%= paper.author_avatar %> />
+						<a class = "source-button" href="<%= paper.source %>" target="_blank">↬</a></div>
 				</li>			
 			<% end %>
 		</ul>
 	</div>
 	
-	<footer>· OpenPaper ·</footer>
+	<footer>
+		<ul>
+			<li>About</li>
+			<li>Blog</li>
+			<li>Terms</li>
+		</ul>
+	</footer>
 </div>
 
 </body>

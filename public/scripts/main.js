@@ -5,6 +5,7 @@ $(document).ready(function() {
 		"big data" : "Give man Hadoop cluster he gain insight for a day. Teach man build Hadoop cluster he soon leave for better job — @BigDataBorat",
 		"dieter rams" : "Good design is as little design as possible.",
 		"openpaper" : "♥",
+		"quail" : "I don't even know what a quail looks like",
 		"42" : "A clever one you are!",
 		"hacker news": "Only the finest source of technology awesomeness and asshatery.",
 		"ivory tower": "RIP: Destroyed by OpenPaper - 2012.",
@@ -33,11 +34,11 @@ $(document).ready(function() {
 var isSpecial = function( letters ) {
 
 	if ( specialQueries[ letters ] ) {
-		$("p").text( specialQueries [letters] );
+		$("p.magic").text( specialQueries [letters] );
 		$("input").css('borderColor', "#9eedc1");
 		$("input").css('boxShadow', "#9eedc1");
 	} else {
-		$("p").text( "Academic papers for all." );
+		$("p.magic").text( "Academic papers for all." );
 		$("input").css('borderColor', "#9ecaed");
 		$("input").css('boxShadow', "#9ecaed");
 	}

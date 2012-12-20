@@ -53,15 +53,13 @@ get "/papers" do
 end
 
 get "/addpaper" do
-	@papers = Paper.all :order => :title.desc  
+	@papers = Paper.all(:order => :title.desc)  
 	@title = 'All Papers'
 	erb :addpaper
 end
 
 get '/search/*' do
-	query = params[:q].downcase
-	query = query.downcase
-	@title = query
+	@title = query = params[:q].downcase
 	#@papers = Paper.all(:conditions => ["author_lowercase.like = ? OR title_lowercase.like = ?", query, query])
 	#Paper.all("author_lowercase.like" => "%#{query}%")
 	@papers = Paper.all("author_lowercase.like" => "%#{query}%") | Paper.all("title_lowercase.like" => "%#{query}%" )
@@ -70,18 +68,12 @@ get '/search/*' do
 	erb :papers
 end
 
-post '/addpaper' do  
-	p = Paper.new  
-	p.title = params[:title]
-	p.author = params[:author]
-	p.school = params[:school]
-	p.source = params[:source]
-	p.summary = params[:summary]
-	p.author_avatar = params[:author_avatar]
+post '/addpaper' do
+	p = Paper.new(params)
 	p.created_at = Time.now
 	p.save  
 	redirect '/addpaper'  
-end  
+end
 
 # Now redundant due to use of /papers/:slug
 get "/addpaper/:slug" do

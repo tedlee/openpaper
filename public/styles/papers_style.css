@@ -21,8 +21,10 @@ body {
 
 
 #content {
-	padding: 4px;
-	border-radius: 8px;
+	padding: 5px;
+	padding-top: 0px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 	background-color: white;
 	width: 920px;
 	height: 600px;
@@ -32,56 +34,69 @@ body {
 	-webkit-box-shadow: 0 2px 4px #777;
 	   -moz-box-shadow: 0 2px 4px #777;
 			box-shadow: 0 2px 4px #777;
-	margin: -5px auto 6%;
+	margin: 1px auto 10%;
 	overflow: scroll;
 	background-color: #fcfcfc;
+	z-index: 10;
 }
 
 #filter-bar {
 	width: 930px;
-	height: 45px;
+	height: 40px;
 	display: block;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+
+	-webkit-box-shadow: 0 2px 6px #777;
+	   -moz-box-shadow: 0 2px 6px #777;
+			box-shadow: 0 2px 6px #777;
 	
-	background-image: url(http://assets0.favster.fm/assets/1x-sprites-horizontal-s835ba4208e-d4d69d638a46d2b1cb7240103473cb1a.png);
-	background-position: 0px -96px;
+	background-image: url(../images/filter-bar-bg.jpg); 
+	background-position: 0px 0px;
 	background-repeat: repeat-x;
 	margin: 60px auto auto;
 	z-index: 100;
 }
 
-ul{
+#content ul{
 	list-style: none;
-	font: bold 16px Kefa, "Futura Std", Helvetica, "lucida sans";
+	font: bold 16px "Vollkorn", Georgia, Times, serif;
 	padding: 0;
 	/* margin-bottom: 1em; */
 	z-index: 1;
+	margin-right: -10px;
+	margin-top: -4px;
+	margin-left: -5px;
 }
 
-ul p{
-	font: italic normal 16px Kefa, "Futura Std", Helvetica, "lucida sans";
+#content ul p{
+	font: italic bold 16px 'Vollkorn', Georgia, Times, serif;
 	display:inline;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
-li{
+#content li{
 	position: relative;
 	text-decoration: none;
 	display: block;
-	padding: .4em .4em 1.6em .8em;
-	color: #444;
+	/* padding: .4em .4em 1.6em .8em; */	color: #444;
+
+	padding-left: 20px;
 	border-top: 1px solid #e3e3e3;
 	z-index:0;
-	vertical-align: middle;
+	
+	height: 50px;
+	line-height: 50px;
+
 }
 
-li:hover{
+#content li:hover{
 	border-right: 10px solid #00aeef;
 	background-color: #abe4fa;
-	border-radius: 0px;
 }
 
-li a{
+#content li a{
 	text-decoration: none;
 	color: black;
 }
@@ -96,18 +111,25 @@ input {
 	margin-top: 5px;
 	margin-left: 10px;
 	width: 200px;
-	font: 12px Futura;
+	font: 14px "Ubuntu", Georgia, Times, serif;
 	border:2px solid #dadada;
 }
 
 input:focus { 
-    outline:none;
-    border-color:#9ecaed;
-}	
+	outline:none;
+	border-color:#9ecaed;
+}
+
+input:hover {
+	outline: none;
+	border-color: #CCC;
+}
+
+
 
 #logo {
 	width: 271px;
-	height: 47px;
+	height: 90px;
 	margin: 20px auto 0;
 }
 
@@ -117,7 +139,6 @@ input:focus {
 	vertical-align: middle;
 }
 
-
 footer {
 	position: relative;
 	margin-top: -50px;
@@ -125,13 +146,26 @@ footer {
 	clear: both;
 	color: white;
 	background-color: #00aeef;
-	min-width: 1100px;
+	min-width: 100%;
 	text-align: center;
-	font: bold 1em/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font: bold 1em/1.5em "Helvetica Neue", "Ubuntu", Arial, Helvetica, sans-serif;
+}
+
+footer ul li {
+	display: inline;
+	position: relative;
+}
+
+footer ul li::after {
+	content: "\2219";
+	float: left;
+	display: inline;
+	padding: 0;
+	color: white;
 }
 
 #box {
-
+	display: block;
 }
 
 .source-button {
@@ -152,10 +186,10 @@ footer {
 	font-weight:bold;
 	vertical-align: middle;
 	margin-left: 10px;
-	padding:6px 12px;
+	padding:0px 12px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #ffffff;
-	z-index: 1001
+	z-index: 1001;
 }
 
 .source-button:active {
@@ -163,22 +197,22 @@ footer {
 	top:1px;
 }
 
-#icons {
-	position: relative;
-	right:50px;
-	float: right;
-}
-
 .right {
 	position: absolute;
 	float: right;
-	vertical-align: middle;
 	right: 20px;
+	display: inline;
+	margin-top: 5px;
+
+	height: 40px;
+	line-height: 40px;
+
 }
 
 .paperTitle {
 	vertical-align: middle;
 }
+
 
 
 
